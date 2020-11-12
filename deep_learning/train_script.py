@@ -21,7 +21,7 @@ from utils import print_param_summary, append_scores, load_sample_df, get_datase
 
 #%%-------------------------------------------------------------------------------------------------
 # General declaration
-data_path = 'DSTL_data'
+data_path = 'DSTL_data/'
 mask_path = 'DSTL_data/masks/'
 img_path = 'DSTL_data/processed_img/'
 output_path = 'Outputs/'
