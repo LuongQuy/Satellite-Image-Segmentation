@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import os
 import skimage
+import skimage
 
 import warnings
 warnings.filterwarnings("ignore", message="Possible precision loss when converting from float64 to uint16")
@@ -33,6 +34,7 @@ from utils import load_image, save_geotiff, contrast_stretch, NDVI, EVI, panshar
     |--- 0 : 450 - 800 nm
 """
 data_path = '/content/drive/My Drive/BML/DSTL_data/'
+output_path = '/content/drive/My Drive/BML/Ouput_data/'
 
 # load the img_id
 wkt_df = pd.read_csv(data_path+'train_wkt_v4.csv')
@@ -74,7 +76,7 @@ axs[2].imshow(img_fused[1200:1600,1200:1600,[6,4,2]])
 axs[2].set_title('Image fusion', fontsize=12)
 for ax in axs: ax.set_axis_off()
 fig.tight_layout()
-fig.savefig('Figures/pansharpening.png', dpi=150, bbox_inches='tight')
+fig.savefig(output_path+'Figures/pansharpening.png', dpi=150, bbox_inches='tight')
 plt.show()
 
 #%% Index example
@@ -98,5 +100,5 @@ axs[3].set_title('True Color Composition', fontsize=12)
 axs[3].imshow(img_fused[:,:,[4,2,1]])
 for ax in axs: ax.set_axis_off()
 fig.tight_layout()
-fig.savefig('Figures/indices.png', dpi=150, bbox_inches='tight')
+fig.savefig(output_path+'Figures/indices.png', dpi=150, bbox_inches='tight')
 plt.show()
