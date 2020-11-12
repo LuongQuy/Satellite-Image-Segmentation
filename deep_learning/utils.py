@@ -15,7 +15,7 @@ import pickle
 import skimage.transform
 import skimage.io
 
-import sklearn.metrics.jaccard_score as jaccard_score
+from sklearn.metrics import jaccard_score, f1_score, precision_score
 
 import warnings
 warnings.filterwarnings("ignore", message="Dataset has no geotransform set. The identity matrix may be returned")
@@ -672,7 +672,7 @@ def get_dataset_scores(data_set, model, augmented_pred=True, verbose=False):
     else:
         device = torch.device('cpu')
 
-    scores = {'jaccard':[], 'f1-score':[], 'recall':[], 'precision':[]}
+    # scores = {'jaccard':[], 'f1-score':[], 'recall':[], 'precision':[]}
     # scores = {'jaccard':[], 'f1-score':[], 'recall':[], 'precision':[]}
     # metrics = {'jaccard':jaccard_score, 'f1-score':f1_score, 'recall':recall_score, 'precision':precision_score}
 
@@ -682,7 +682,7 @@ def get_dataset_scores(data_set, model, augmented_pred=True, verbose=False):
         # compute scores for each image separatly
         for i in range(output.shape[0]):
             m, o = mask[i,:,:].flatten().cpu(), output[i,:,:].flatten().cpu()
-            scores[name].append(jaccard_score(m, o))
+            scores[name].append(precision_score(m, o))
             # for name, metric in metrics.items():
             #     scores[name].append(metric(m, o))
         if verbose : print_progessbar(b, dataloader.__len__(), '|---- Batch', Size=20, end_char='\n')
