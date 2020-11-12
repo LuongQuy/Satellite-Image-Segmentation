@@ -12,6 +12,7 @@ import rasterio
 import torch
 import torch.cuda as cuda
 import pickle
+import skimage.io as sk
 
 import warnings
 warnings.filterwarnings("ignore", message="Dataset has no geotransform set. The identity matrix may be returned")
@@ -222,9 +223,9 @@ def load_image(filepath, img_id):
         |---- img_M (3D numpy array) the Multispectral bands
         |---- img_P (2D numpy array) the Panchromatic band
     """
-    img_M = skimage.img_as_float(skimage.io.imread(filepath+img_id+'_M.tif', plugin="tifffile"))
-    img_A = skimage.img_as_float(skimage.io.imread(filepath+img_id+'_A.tif', plugin="tifffile"))
-    img_P = skimage.img_as_float(skimage.io.imread(filepath+img_id+'_P.tif', plugin="tifffile"))
+    img_M = skimage.img_as_float(sk.imread(filepath+img_id+'_M.tif', plugin="tifffile"))
+    img_A = skimage.img_as_float(sk.imread(filepath+img_id+'_A.tif', plugin="tifffile"))
+    img_P = skimage.img_as_float(sk.imread(filepath+img_id+'_P.tif', plugin="tifffile"))
 
     return np.moveaxis(img_A, 0, 2), np.moveaxis(img_M, 0, 2), img_P
 
