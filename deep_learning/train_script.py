@@ -216,7 +216,7 @@ print('\n>>> Trained model saved on disk at'+output_path+model_name+'_trained.pt
 # Loading the best model
 best_model_param = torch.load(output_path+model_name+'_best.pickle')
 model.load_state_dict(best_model_param['model_state'])
-print(f'>>> Best Model loaded from epoch {best_model_param['nb_epochs']}\n')
+print(f">>> Best Model loaded from epoch {best_model_param['nb_epochs']}\n")
 
 # Compute the scores
 datasets = {'train':train_set, 'validation':val_set, 'test':test_set}
