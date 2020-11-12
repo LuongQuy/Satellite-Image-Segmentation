@@ -15,7 +15,7 @@ import pickle
 import skimage.transform
 import skimage.io
 
-from sklearn.metrics import jaccard_score
+from sklearn.metrics import jaccard_score as jaccard_score
 
 import warnings
 warnings.filterwarnings("ignore", message="Dataset has no geotransform set. The identity matrix may be returned")
