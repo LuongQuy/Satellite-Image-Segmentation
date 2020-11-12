@@ -12,7 +12,7 @@ import rasterio
 import torch
 import torch.cuda as cuda
 import pickle
-import skimage.io as io
+import io
 
 import warnings
 warnings.filterwarnings("ignore", message="Dataset has no geotransform set. The identity matrix may be returned")
