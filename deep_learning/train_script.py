@@ -49,7 +49,7 @@ train_frac = 0.85
 non_class_fraction = 0.15
 
 # the full data
-df = load_sample_df(data_path+'train_samples.csv', class_type=class_type, others_frac=non_class_fraction, seed=1)
+df = load_sample_df(data_path+'train_wkt_v4.csv', class_type=class_type, others_frac=non_class_fraction, seed=1)
 # train validation split
 train_df, val_df = train_test_split(df, train_size=train_frac, random_state=1)
 # load the test set
