@@ -25,4 +25,5 @@ img_path = data_path+'processed_img/'
 output_path = '/content/drive/My Drive/BML/Ouput_data/'
 
 # the full data
+class_type = 'building'
 df = load_sample_df(data_path+'train_wkt_v4.csv', class_type=class_type, others_frac=non_class_fraction, seed=1)
