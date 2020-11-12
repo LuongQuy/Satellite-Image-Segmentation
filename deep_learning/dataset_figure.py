@@ -24,7 +24,8 @@ fig.patch.set_alpha(0)
 
 for i, (class_name, class_pos) in enumerate(class_position.items()):
     # creat dataset
-    df_tmp = df[pd.DataFrame(df.ClassType.tolist()).isin([class_name]).any(1)]
+    df_tmp = df[pd.DataFrame(df.ClassType.tolist()).isin([class_pos]).any(1)]
+    print(df_tmp)
     data_set = dataset(df_tmp, img_path, mask_path, class_position[class_name], augment=True, crop_size=(144,144))
     # draw group rectangles
     pos = axs[i,0].get_position()
