@@ -7,6 +7,8 @@ import shapely
 import descartes
 import skimage
 
+output_path = '/content/drive/My Drive/BML/Ouput_data/'
+
 from utils import get_polygon_dict, get_polygons_masks, plot_polygons, plot_masks
 
 Class_dict = {'building':[1], 'misc':[2], 'road':[3], 'track':[4], \
@@ -55,5 +57,5 @@ labels = list(color_dict.keys())
 lgd = fig.legend(handles, labels, ncol=8, loc='lower center', fontsize=14, \
            bbox_to_anchor=(0.5, -0.03), bbox_transform=fig.transFigure)
 fig.tight_layout()
-fig.savefig('../Figures/Segmentations_labels.png', dpi=200, bbox_extra_artists=(lgd,), bbox_inches='tight')
+fig.savefig(output_path+'Figures/Segmentations_labels.png', dpi=200, bbox_extra_artists=(lgd,), bbox_inches='tight')
 plt.show()
