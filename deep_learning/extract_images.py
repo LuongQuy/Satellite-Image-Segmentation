@@ -55,7 +55,7 @@ for i, img_id in enumerate(img_id_list):
     img = np.concatenate([img_fused, np.expand_dims(ndvi,2), np.expand_dims(ndwi,2), np.expand_dims(evi,2)], axis=2)
     img = np.moveaxis(img, 2, 0)
     #skimage.external.tifffile.imsave(path_to_drive+'processed_img/'+img_id+'.tiff', skimage.img_as_uint(img))
-    save_geotiff(processed_img_path+'+img_id+'.tif', skimage.img_as_uint(img), dtype='uint16')
+    save_geotiff(processed_img_path+img_id+'.tif', skimage.img_as_uint(img), dtype='uint16')
 
 # %% -----------------------------------------------------------------------------------
 # processing example
