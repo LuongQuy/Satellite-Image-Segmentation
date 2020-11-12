@@ -158,7 +158,7 @@ for epoch in range(nb_epochs_finished, n_epoch):
         # compute train scores
         with torch.set_grad_enabled(False):
             l, o = train_label.long().flatten().cpu(), output.argmax(dim=1).flatten().cpu()
-            jaccard_train.append(jaccard_score(l, o))
+            # jaccard_train.append(jaccard_score(l, o))
             f1_train.append(f1_score(l, o))
         # print the progress bar
         print_progessbar(b, train_dataloader.__len__(), Name='|--- Train', Size=20)
@@ -171,7 +171,7 @@ for epoch in range(nb_epochs_finished, n_epoch):
             val_data, val_label = val_data.to(device), val_label.to(device)
             val_pred = model(val_data).argmax(dim=1)
             l, o = val_label.long().flatten().cpu(), val_pred.flatten().cpu()
-            jaccard_val.append(jaccard_score(l, o))
+            # jaccard_val.append(jaccard_score(l, o))
             f1_val.append(f1_score(l, o))
             # print the progress bar
             print_progessbar(b, val_dataloader.__len__(), Name='|--- Validation', Size=20)
