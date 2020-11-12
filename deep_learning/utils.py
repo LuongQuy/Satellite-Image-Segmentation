@@ -471,7 +471,7 @@ def load_sample_df(filename, class_type, others_frac=0, seed=None):
     of non-class_type to it.
     ------------
     INPUT
-        |---- filename (str) patht to the csv file.
+        |---- filename (str) path to the csv file.
         |---- class_type (str) class name to select
         |---- other_frac (float) between 0 and 1, specify the fraction of the
         |                        class_type dataframe of non-class_type element
@@ -481,13 +481,22 @@ def load_sample_df(filename, class_type, others_frac=0, seed=None):
         |---- sub_df (pandas.DataFrame) The dataframe of the class_type
     """
     df = pd.read_csv(filename, index_col=0, converters={'classes' : literal_eval})
+    print(df.head())
     # get samples with the given class
     sub_df = df[pd.DataFrame(df.classes.tolist()).isin([class_type]).any(1)]
+    print('sub_df:\n',sub_df.head())
+    print('-'*100)
     # get sample without the given class
     other_df = df[~pd.DataFrame(df.classes.tolist()).isin([class_type]).any(1)]
+    print('other_df1:\n',other_df.head())
+    print('-'*100)
     # add other_frac percent of other in sub, shuffle the rows and reset the index
     other_df = other_df.sample(n=int(others_frac*sub_df.shape[0]), random_state=seed, axis=0)
+    print('other_df2:\n',other_df.head())
+    print('-'*100)
     sub_df = pd.concat([sub_df, other_df], axis=0).sample(frac=1, random_state=seed)
+    print('sub_df:\n',sub_df.head())
+    print('-'*100)
     return sub_df
 
 def stat_from_list(list):
@@ -682,8 +691,8 @@ def get_dataset_scores(data_set, model, augmented_pred=True, verbose=False):
         for i in range(output.shape[0]):
             m, o = mask[i,:,:].flatten().cpu(), output[i,:,:].flatten().cpu()
             for name, metric in metrics.items():
-                print(name, '-', metric)
-                scores[str(name)].append(metric(m, o))
+                print(name)
+                scores[name].append(metric(m, o))
         if verbose : print_progessbar(b, dataloader.__len__(), '|---- Batch', Size=20, end_char='\n')
     return scores
 
