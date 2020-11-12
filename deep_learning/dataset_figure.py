@@ -36,7 +36,7 @@ for i, (class_name, class_pos) in enumerate(class_position.items()):
              fontweight='bold', fontsize=14, ha='center', va='center')
     # plot image + mask
     for j in range(N_img):
-        img, mask = data_set.__getitem__(np.random.randint(0, df_tmp.shape[0]))
+        img, mask = data_set.__getitem__(np.random.randint(0, df.shape[0]))
         axs[i,j].imshow(np.moveaxis(np.array(img[[4,2,1], :, :]), 0, 2))
         m = np.ma.masked_where(mask == 0, mask)
         axs[i,j].imshow(m, cmap = matplotlib.colors.ListedColormap(['white', 'red']), vmin=0, vmax=1, alpha=0.3)
