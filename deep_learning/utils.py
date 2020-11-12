@@ -671,7 +671,7 @@ def get_dataset_scores(data_set, model, augmented_pred=True, verbose=False):
         device = torch.device('cpu')
 
     scores = {'jaccard':[], 'f1-score':[], 'recall':[], 'precision':[]}
-    metrics = {'jaccard':jaccard_score, 'f1-score':f1_score, 'recall':recall_score, 'precision':precision_score}
+    metrics = {'jaccard':'jaccard_score', 'f1-score':'f1_score', 'recall':'recall_score', 'precision':'precision_score'}
 
     for b, (input, mask) in enumerate(dataloader):
         input, mask = input.to(device), mask.to(device).long()
