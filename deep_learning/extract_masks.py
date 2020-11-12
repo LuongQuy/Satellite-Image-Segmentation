@@ -21,7 +21,7 @@ color_dict = {'building':'0.7', 'misc':'0.4', 'road':'#b35806', 'track':'#dfc27d
 zorder_dict = {'crop':1, 'water':2, 'road':3, 'track':4,\
                'building':5, 'misc':6, 'vehicle':7, 'tree':8}
 
-data_path = 'DSTL_data'
+data_path = '../../DSTL_data/'
 
 # load the grid for conversion of polygon into image space
 grid = pd.read_csv(data_path+'grid_sizes.csv').rename(columns={'Unnamed: 0':'ImageId'})

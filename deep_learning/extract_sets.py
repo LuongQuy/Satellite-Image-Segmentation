@@ -11,7 +11,7 @@ import rasterio
 
 from utils import get_crops_grid, load_image_part, get_represented_classes, get_samples
 
-data_path = 'DSTL_data/'
+data_path = '../../DSTL_data/'
 mask_path = 'DSTL_data/masks/'
 img_path = 'DSTL_data/processed_img/'
 

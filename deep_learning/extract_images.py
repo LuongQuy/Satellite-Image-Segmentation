@@ -32,7 +32,7 @@ from utils import load_image, save_geotiff, contrast_stretch, NDVI, EVI, panshar
 |-- P
     |--- 0 : 450 - 800 nm
 """
-data_path = 'DSTL_data/'
+data_path = '../../DSTL_data/'
 
 # load the img_id
 wkt_df = pd.read_csv(data_path+'train_wkt_v4.csv')

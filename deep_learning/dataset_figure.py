@@ -6,7 +6,7 @@ import matplotlib
 
 from learning_classes import dataset
 
-data_path = 'DSTL_data/'
+data_path = '../../DSTL_data/'
 mask_path = 'DSTL_data/masks/'
 img_path = 'DSTL_data/processed_img/'
 
