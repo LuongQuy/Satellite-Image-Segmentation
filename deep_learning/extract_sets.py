@@ -58,7 +58,7 @@ df_test_small = get_samples(id_test, \
                        class_offset_train, class_area_train, \
                        verbose=True)
 
-df_train.to_csv(data_path+'train_samples.csv')
+df_train.to_csv(data_path+'train_wkt_v4.csv')
 df_test.to_csv(data_path+'test_samples.csv')
 df_test_small.to_csv(data_path+'test_samples_small.csv')
 
