@@ -80,7 +80,7 @@ else:
 log_train = {}
 
 # learning parameters
-n_epoch = 100
+n_epoch = 1
 nb_epochs_finished = 0
 lr = 0.0001
 
