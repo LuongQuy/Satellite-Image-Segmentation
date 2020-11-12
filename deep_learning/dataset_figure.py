@@ -15,7 +15,7 @@ class_position = {'building':0, 'misc':1, 'road':2, 'track':3, \
                   'tree':4, 'crop':5, 'water':6, 'vehicle':7}
 
 # %% load sample_df
-df = pd.read_csv(data_path+'train_wkt_v4.csv', index_col=0, converters={'classes' : literal_eval})
+df = pd.read_csv(data_path+'train_wkt_v4.csv', index_col=0)
 
 # %% plot
 N_img = 6
