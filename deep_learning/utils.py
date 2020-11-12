@@ -682,7 +682,7 @@ def get_dataset_scores(data_set, model, augmented_pred=True, verbose=False):
         for i in range(output.shape[0]):
             m, o = mask[i,:,:].flatten().cpu(), output[i,:,:].flatten().cpu()
             for name, metric in metrics.items():
-                scores[name].append(metric(m, o))
+                scores[str(name)].append(metric(m, o))
         if verbose : print_progessbar(b, dataloader.__len__(), '|---- Batch', Size=20, end_char='\n')
     return scores
 
