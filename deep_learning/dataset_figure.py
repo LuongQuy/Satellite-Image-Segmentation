@@ -7,8 +7,8 @@ import matplotlib
 from learning_classes import dataset
 
 data_path = '/content/drive/My Drive/BML/DSTL_data/'
-mask_path = 'DSTL_data/masks/'
-img_path = 'DSTL_data/processed_img/'
+mask_path = data_path+'masks/'
+img_path = data_path+'processed_img/'
 
 # index of class in masks
 class_position = {'building':0, 'misc':1, 'road':2, 'track':3, \

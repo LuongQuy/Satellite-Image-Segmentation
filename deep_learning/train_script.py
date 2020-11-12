@@ -22,8 +22,8 @@ from utils import print_param_summary, append_scores, load_sample_df, get_datase
 #%%-------------------------------------------------------------------------------------------------
 # General declaration
 data_path = '/content/drive/My Drive/BML/DSTL_data/'
-mask_path = 'DSTL_data/masks/'
-img_path = 'DSTL_data/processed_img/'
+mask_path = data_path+'masks/'
+img_path = data_path+'processed_img/'
 output_path = 'Outputs/'
 if not os.path.isdir(data_path): print("Cannot find the external drive!")
 
