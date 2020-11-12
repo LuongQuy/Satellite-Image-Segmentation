@@ -224,7 +224,7 @@ all_scores = {}
 
 print('-'*100+'\n'+'Computing Scores'.center(100)+'\n'+'-'*100)
 with torch.set_grad_enabled(False):
-    for name, data_set in datasets.item():
+    for name, data_set in datasets.items():
         print('|-- ' + name)
         all_scores[name] = get_dataset_scores(data_set, model, augmented_pred=True, verbose=True)
 
