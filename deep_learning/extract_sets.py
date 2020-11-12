@@ -14,6 +14,7 @@ from utils import get_crops_grid, load_image_part, get_represented_classes, get_
 data_path = '/content/drive/My Drive/BML/DSTL_data/'
 mask_path = data_path+'masks/'
 img_path = data_path+'processed_img/'
+output_path = '/content/drive/My Drive/BML/Ouput_data/'
 
 order_dict = {1:'building', 2:'misc', 3:'road', 4:'track', \
               5:'tree', 6:'crop', 7:'water', 8:'vehicle'}
@@ -91,4 +92,4 @@ def animate(c):
     return [P1,P2]
 
 anim = matplotlib.animation.FuncAnimation(fig, animate, init_func=init, frames=crops, interval=500, blit=True)
-anim.save('../Figures/train_samples.gif', writer='imagemagick', dpi=150)
+anim.save(output_path+'/Figures/train_samples.gif', writer='imagemagick', dpi=150)
