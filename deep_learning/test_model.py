@@ -24,6 +24,11 @@ mask_path = data_path+'masks/'
 img_path = data_path+'processed_img/'
 output_path = '/content/drive/My Drive/BML/Ouput_data/'
 
+# dataset parameters
+augment_data = True
+crop_size = (144,144)
+train_frac = 0.85
+non_class_fraction = 0.15
 # the full data
 class_type = 'building'
 df = load_sample_df(data_path+'train_wkt_v4.csv', class_type=class_type, others_frac=non_class_fraction, seed=1)
