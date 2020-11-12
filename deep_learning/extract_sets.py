@@ -19,7 +19,7 @@ order_dict = {1:'building', 2:'misc', 3:'road', 4:'track', \
               5:'tree', 6:'crop', 7:'water', 8:'vehicle'}
 
 # %% load the img_id
-img_id_list =  list(pd.read_csv('DSTL_data/train_wkt_v4.csv', usecols=['ImageId']).ImageId.unique())
+img_id_list =  list(pd.read_csv(data_path+'train_wkt_v4.csv', usecols=['ImageId']).ImageId.unique())
 
 # define which image is for test and which is for train
 id_test = ['6100_2_2', '6060_2_3', '6110_4_0', '6160_2_1']
