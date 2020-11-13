@@ -14,6 +14,7 @@ import torch.cuda as cuda
 import pickle
 import skimage.transform
 import skimage.io
+import get_variable_name
 
 from sklearn.metrics import jaccard_score, f1_score, recall_score, precision_score
 
@@ -500,6 +501,8 @@ def load_sample_df(filename, class_type, others_frac=0, seed=None):
     sub_df = pd.concat([sub_df, other_df], axis=0).sample(frac=1, random_state=seed)
     print('sub_df:\n',sub_df.head())
     print('-'*100)
+    
+    debug(list(df1,sub_df))
     return sub_df
 
 def stat_from_list(list):
@@ -717,4 +720,11 @@ def print_progessbar(N, Max, Name='', Size=10, end_char=''):
     print(f'\r{Name} {N+1:03d}/{Max:03d}'.ljust(26) \
         + f'[{"#"*int(Size*(N+1)/Max)}'.ljust(Size+1) + f'] {(int(100*(N+1)/Max))}%'.ljust(6), \
         end=end_char)
+
+def debug(arr):
+    names = get_variable_name(arr)
+    n = len(arr)
+    for i in range(n):
+        print(names[i],":\n",arr[i])
+        print('-'*100)
 #
