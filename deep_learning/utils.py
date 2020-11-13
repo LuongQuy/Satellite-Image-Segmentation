@@ -482,27 +482,16 @@ def load_sample_df(filename, class_type, others_frac=0, seed=None):
         |---- sub_df (pandas.DataFrame) The dataframe of the class_type
     """
     df1 = pd.read_csv(filename)
-    print('df1:\n',df1)
-    print('-'*100)
     df = pd.read_csv(filename, index_col=0, converters={'classes' : literal_eval})
-    print(df.head())
     # get samples with the given class
     sub_df = df[pd.DataFrame(df.classes.tolist()).isin([class_type]).any(1)]
-    print('sub_df:\n',sub_df.head())
-    print('-'*100)
     # get sample without the given class
     other_df = df[~pd.DataFrame(df.classes.tolist()).isin([class_type]).any(1)]
-    print('other_df1:\n',other_df.head())
-    print('-'*100)
     # add other_frac percent of other in sub, shuffle the rows and reset the index
     other_df = other_df.sample(n=int(others_frac*sub_df.shape[0]), random_state=seed, axis=0)
-    print('other_df2:\n',other_df.head())
-    print('-'*100)
     sub_df = pd.concat([sub_df, other_df], axis=0).sample(frac=1, random_state=seed)
-    print('sub_df:\n',sub_df.head())
-    print('-'*100)
     
-    debug(list(df1,sub_df))
+    debug([df1,df,sub_df,other_df,sub_df])
     return sub_df
 
 def stat_from_list(list):
