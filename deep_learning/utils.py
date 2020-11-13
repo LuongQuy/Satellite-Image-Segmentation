@@ -480,6 +480,9 @@ def load_sample_df(filename, class_type, others_frac=0, seed=None):
     OUTPUT
         |---- sub_df (pandas.DataFrame) The dataframe of the class_type
     """
+    df1 = pd.read_csv(filename)
+    print('df1:\n',df1)
+    print('-'*100)
     df = pd.read_csv(filename, index_col=0, converters={'classes' : literal_eval})
     print(df.head())
     # get samples with the given class
